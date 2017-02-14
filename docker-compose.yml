@@ -1,0 +1,16 @@
+version: "2.0"
+services:
+  postgis:
+      image: mdillon/postgis:9.6
+      expose:
+        - 5432
+      volumes:
+        - postgis:/var/lib/postgresql/data
+      environment:
+        POSTGRES_DB: osm
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+  tiles:
+    build: .
+volumes:
+  postgis: {}
